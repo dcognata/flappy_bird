@@ -20,8 +20,10 @@ int 	        main(void)
     screen = SDL_GetWindowSurface(window);
 
     init_assets(&assets);
+    // BOUCLE DE JEU MENU
 	while (run)
     {
+        // DETECTION DES TOUCHES / ECHAPES / CLOSE
 		while(SDL_PollEvent(&e) != 0)
         {
             if (e.type == SDL_QUIT || (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE))
@@ -35,11 +37,13 @@ int 	        main(void)
         else
             inGame = in_game(&game, &assets, window, screen);;
 
+        // CALCULE 60 FPS POUR AFFICHER SANS FREEZES / LAGS ET GERER LE TIMER DU JEU (DEPLACEMENTS, SAUTS)
         if (SDL_GetTicks() < (lastrender + 1000 / 60))
             _wait((lastrender + 1000 / 60) - SDL_GetTicks());
         lastrender = SDL_GetTicks();
 	}
 
+    // NETTOYAGE DES SURFACES (MEMOIRE ALLOUEE SUR LA RAM)
     SDL_FreeSurface(screen);
     SDL_FreeSurface(assets.pipe);
     SDL_FreeSurface(assets.icon);

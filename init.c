@@ -1,5 +1,10 @@
 #include "include/flappy_bird.h"
 
+/**
+ * CHARGER LES IMAGES ET LES SONS DANS LES STRUCTURES DEFINIE DANS LE FICHIER :
+ * "assets/flappy_bird.h"
+ */
+
 void            init_assets(t_assets *assets)
 {
     assets->icon = SDL_LoadBMP("./assets/sprites/flappy_bird_icon.bmp");
