@@ -16,7 +16,7 @@ int 	        main(void)
         printf("Failed to create window! SDL_Error: %s\n", SDL_GetError());
         return (-1);
     }
-    SDL_SetWindowIcon(window, icon);
+    SDL_SetWindowIcon(window, assets.icon);
     screen = SDL_GetWindowSurface(window);
 
     init_assets(&assets);
@@ -41,6 +41,7 @@ int 	        main(void)
 	}
 
     SDL_FreeSurface(screen);
+    SDL_FreeSurface(assets.pipe);
     SDL_FreeSurface(assets.icon);
     SDL_FreeSurface(assets.backgroundDay);
     SDL_FreeSurface(assets.backgroundNight);

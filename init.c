@@ -11,6 +11,7 @@ void            init_assets(t_assets *assets)
     assets->birdMidFlap = IMG_Load("./assets/sprites/bluebird-midflap.png");
     assets->birdDownFlap = IMG_Load("./assets/sprites/bluebird-downflap.png");
     assets->gameover = IMG_Load("./assets/sprites/gameover.png");
+    assets->pipe = IMG_Load("./assets/sprites/pipe-green.png");
     assets->currentBird = assets->birdMidFlap;
     assets->overlayPosition.x = (assets->backgroundNight->w - assets->overlayMenu->w) / 2;
     assets->overlayPosition.y = (assets->backgroundNight->h - assets->overlayMenu->h) / 2;
@@ -30,6 +31,7 @@ void            init_assets(t_assets *assets)
 
 void            init_game(t_game *game, t_assets *assets)
 {
+    game->started = true;
     game->dot_vel = (float)1.0;
     game->flappyPosition = MIDDOWN;
     assets->birdPosition.x = 50;
@@ -44,4 +46,12 @@ void            init_game(t_game *game, t_assets *assets)
     assets->scrollBasePositionDest.y = 400;
     assets->scrollBasePositionDest.w = assets->scrollBase->w;
     assets->scrollBasePositionDest.h = assets->scrollBase->h;
+    assets->pipeUpPosSrc.x = 0;
+    assets->pipeUpPosSrc.y = 0;
+    assets->pipeUpPosSrc.w = assets->pipe->w;
+    assets->pipeUpPosSrc.h = assets->pipe->h;
+    assets->pipeUpPosDest.x = 0;
+    assets->pipeUpPosDest.y = 0;
+    assets->pipeUpPosDest.w = assets->pipe->w;
+    assets->pipeUpPosDest.h = assets->pipe->h;
 }

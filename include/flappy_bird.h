@@ -15,8 +15,9 @@
 
 typedef struct	s_game
 {
-   float		dot_vel;
-   int	 		flappyPosition;
+   bool		started;
+   float    dot_vel;
+   int	 	flappyPosition;
 }				t_game;
 
 typedef struct	s_assets
@@ -31,7 +32,10 @@ typedef struct	s_assets
    SDL_Surface	*scrollBase;
    SDL_Surface	*overlayMenu;
    SDL_Surface	*gameover;
+   SDL_Surface *pipe;
    SDL_Rect		birdPosition;
+   SDL_Rect    pipeUpPos;
+   SDL_Rect    pipeDownPos;
    SDL_Rect		overlayPosition;
    SDL_Rect		gameoverPosition;
    SDL_Rect		scrollBasePositionSrc;

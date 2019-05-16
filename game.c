@@ -42,6 +42,14 @@ static void     flappy_jump(t_game *game, t_assets *assets)
     assets->birdPosition.y -= 2;
 }
 
+static void     draw_pipe(t_game *game, t_assets *assets, SDL_Surface *screen)
+{
+    if (game->started == true)
+    {
+        SDL_BlitSurface(assets->pipe, &assets->pipeUpPos, screen, NULL);
+    }
+}
+
 bool            in_game(t_game *game, t_assets *assets, SDL_Window *window, SDL_Surface *screen)
 {
     bool        run = true;
@@ -83,6 +91,7 @@ bool            in_game(t_game *game, t_assets *assets, SDL_Window *window, SDL_
         {
             SDL_BlitSurface(assets->currentBird, NULL, screen, &assets->birdPosition);
             i = changeFlappyPosition(i, game, assets);
+            draw_pipe(game, assets, screen);
             gameover = colision(game, assets);
         }
         else
